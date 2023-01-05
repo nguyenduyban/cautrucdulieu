@@ -1,0 +1,26 @@
+* SELECTION SORT
+Sắp xếp danh sách theo thứ tự tăng dần.
+Giải thuật: 
+Cho i chạy từ 0 đến (n-1)
+Bước 1: Tìm pos là vị trí của phần tử nhỏ
+nhất trong danh sách (ai, ai+1, …, an-1)
+Bước 2: Hoán vị giá trị hai phần tử tại
+vị trí i và vị trí pos
+Cuối i
+
+* INSERTION SORT 
+Sắp xếp danh sách theo thứ tự tăng dần.
+Giải thuật: 
+Cho i chạy từ 0 đến (n-1)
+tam= ai
+Cho j chạy từ (i-1) đến 0
+Nếu aj > tam thì aj+1 = aj
+Ngược lại kết thúc vòng lặp j
+Cuối j
+aj+1 = tam
+Cuối i
+
+VÍ DỤ : 
+for (int i=1;j<n;j++)
+tam=a[i];
+for(
