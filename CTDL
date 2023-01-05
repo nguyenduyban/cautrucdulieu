@@ -8,11 +8,34 @@ Bước 2: Hoán vị giá trị hai phần tử tại
 vị trí i và vị trí pos
 Cuối i
 
+VÍ DỤ : 
+void swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+void selectionSort(int a[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+       
+        int min = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[j] > a[min])
+                min = j;
+        }
+        swap(a[min], a[i]);
+        for (int k = 0; k < n; k++)
+            cout << a[k] << " ";
+        cout << endl;
+___________________________
 * INSERTION SORT 
 Sắp xếp danh sách theo thứ tự tăng dần.
 Giải thuật: 
 Cho i chạy từ 0 đến (n-1)
-tam= ai
+gán biến tạm bằng giá trị của i (tam= ai)
 Cho j chạy từ (i-1) đến 0
 Nếu aj > tam thì aj+1 = aj
 Ngược lại kết thúc vòng lặp j
@@ -20,14 +43,24 @@ Cuối j
 aj+1 = tam
 Cuối i
 
-VÍ DỤ : 
-for (int i=1;j<n;j++)
-tam=a[i];
-for(int j=i-1;j>=0;j++)
-if(a[j]> tam // giảm dần thì đổi dấu > thành <
-a[j+1]=a[j]
-a[j+1]=tam
-
+ví dụ : 
+void insertionSort(int a[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        int j = i;
+        while (j > 0 && a[j] > a[j - 1])
+        {
+            swap(a[j], a[j - 1]);
+            j--;
+        }
+        // In ra mảng sau mỗi lần sắp xếp
+        for (int k = 0; k < n; k++)
+            cout << a[k] << " ";
+        cout << endl;
+    }
+}
+________________________________
 *BUBBLE SORT 
 Sắp xếp danh sách  theo thứ tự      tăng dần.
 Giải thuật: 
@@ -59,4 +92,89 @@ HÀNG ĐỢI
         q.rear->next = newNode;
         q.rear = newNode;
     }
+}
+---
+int deQueue(Queue &q)
+{
+    if (q.front == NULL)
+    {
+        cout << "Queue is empty" << endl;
+        return -1;
+    }
+    Nodeptr temp = q.front;
+    q.front = q.front->next;
+    if (q.front == NULL)
+        q.rear = NULL;
+    int x = temp->data;
+    free(temp);
+    return x;
+}
+-----
+int Getfront(Queue q)
+{
+    if (q.front == NULL)
+    {
+        cout << "Queue is empty" << endl;
+        return -1;
+    }
+    return q.front->data;
+}
+___________________________
+Ngăn 
+void pushStack(Stack &s, int x)
+{
+    Nodeptr newNode = (Nodeptr)malloc(sizeof(Node));
+    newNode->data = x;
+    newNode->next = s.top;
+    s.top = newNode;
+}
+----
+int popStack(Stack &s)
+{
+    if (s.top == NULL)
+    {
+        cout << "Stack is empty" << endl;
+        return -1;
+    }
+    Nodeptr temp = s.top;
+    s.top = s.top->next;
+    int x = temp->data;
+    free(temp);
+    return x;
+}
+-----
+int topElement(Stack s)
+{
+    if (s.top == NULL)
+    {
+        cout << "Stack is empty" << endl;
+        return -1;
+    }
+    return s.top->data;
+}
+-------------------------
+câu 4 
+cấu trúc dslkep
+a)
+struct Node
+{
+    char data; // kiểu thực thì thay char thành float
+    Node *prev;
+    Node *next;
+};
+
+typedef Node *Nodeptr;
+
+b)// Hàm thêm vào đầu danh sách liên kết kép
+void (Nodeptr &head, char x) // kiểu thực thì thay char thành float
+{
+    Nodeptr newNode = new Node;
+    newNode->data = x;
+    newNode->prev = NULL;
+    newNode->next = head;
+
+    if (head != NULL){
+        head->prev = newNode;
+        }
+          head = newNode;
 }
