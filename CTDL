@@ -23,4 +23,40 @@ Cuối i
 VÍ DỤ : 
 for (int i=1;j<n;j++)
 tam=a[i];
-for(
+for(int j=i-1;j>=0;j++)
+if(a[j]> tam // giảm dần thì đổi dấu > thành <
+a[j+1]=a[j]
+a[j+1]=tam
+
+*BUBBLE SORT 
+Sắp xếp danh sách  theo thứ tự      tăng dần.
+Giải thuật: 
+Cho i chạy từ n đến 1
+Cho j chạy từ 1 đến (i-1)
+Nếu aj-1 > aj thì
+Hoán vị giá trị hai phần tử aj và
+aj-1
+Cuối j
+Cuối i
+
+----------------------
+HÀNG ĐỢI
+ void enQueue(Queue &q, int x)
+{
+    Nodeptr newNode = (Nodeptr)malloc(sizeof(Node)); 
+    //malloc là hàm cấp phát động nhận vào một số nguyên là kích thước cần cấp phát và trả về con trỏ đến vùng nhớ đã được cấp phát.
+    //sizeof(Node) trả về kích thước của kiểu dữ liệu Node
+    newNode->data = x;
+    newNode->next = NULL;
+
+    if (q.front == NULL)
+    {
+        q.front = newNode;
+        q.rear = newNode;
+    }
+    else
+    {
+        q.rear->next = newNode;
+        q.rear = newNode;
+    }
+}
