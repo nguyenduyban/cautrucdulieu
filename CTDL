@@ -1,3 +1,4 @@
+câu 
 * SELECTION SORT
 Sắp xếp danh sách theo thứ tự tăng dần.
 Giải thuật: 
@@ -73,6 +74,7 @@ Cuối j
 Cuối i
 
 ----------------------
+câu 
 HÀNG ĐỢI
  void enQueue(Queue &q, int x)
 {
@@ -181,6 +183,11 @@ void themdau(list &ds, char x) // kiểu thực thì thay char thành float
         }
           ds.head = newNode;
 }
+void delete_head(list& ds) {
+Nodeptr temp = list.head->next;
+delete head;
+head = temp;
+}
 ___________
 cấu trúc dslk vòng
 a ) 
@@ -196,12 +203,21 @@ struct list {
 };
 
 b)
-void th(list & ds, char x) {//Kiểu thực thì thay char thành float
+void themdau(list & ds, char x) {//Kiểu thực thì thay char thành float
     Nodeptr new_node = new Node;
     new_node->data = x; 
     new_node->next = ds.head;
     ds.head = new_node;
 }
+void delete_head(list& ds) {
+  if (list.head == nullptr) {
+    return;
+  }
+  Nodeptr temp = list.head;
+  list.head = list.head->next;
+  delete temp;
+}
+
 ______________________
 5
 bool:  giá trị
