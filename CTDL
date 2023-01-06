@@ -164,17 +164,54 @@ struct Node
 };
 
 typedef Node *Nodeptr;
-
+struct list {
+    Nodeptr head  // đầu
+    Nodeptr tail // cuối
+};
 b)// Hàm thêm vào đầu danh sách liên kết kép
-void (Nodeptr &head, char x) // kiểu thực thì thay char thành float
+void themdau(list &ds, char x) // kiểu thực thì thay char thành float
 {
     Nodeptr newNode = new Node;
     newNode->data = x;
     newNode->prev = NULL;
-    newNode->next = head;
+    newNode->next = ds.head;
 
-    if (head != NULL){
-        head->prev = newNode;
+    if (ds.head != NULL){
+        ds.head->prev = newNode;
         }
-          head = newNode;
+          ds.head = newNode;
 }
+___________
+cấu trúc dslk vòng
+a ) 
+struct Node {
+    char data; //Kiểu thực thì thay char thành float
+    Node *next;
+};
+
+typedef Node *Nodeptr;
+struct list {
+    Nodeptr head  // đầu
+    Nodeptr tail // cuối
+};
+
+b)
+void th(list & ds, char x) {//Kiểu thực thì thay char thành float
+    Nodeptr new_node = new Node;
+    new_node->data = x; 
+    new_node->next = ds.head;
+    ds.head = new_node;
+}
+______________________
+5
+bool:  giá trị
+
+char: ký tự.
+
+int: số nguyên.
+
+float: số thực vs số thập phân tùy ý
+
+double: số thập phân tùy ý, nhưng có số lượng chữ số thập phân nhiều hơn so với kiểu float.
+
+string: chuỗi ký tự.
